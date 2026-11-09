@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #f0fdf4;
+  --color-brand-100: #dcfce7;
+  --color-brand-500: #22c55e;
+  --color-brand-600: #16a34a;
+  --color-brand-700: #15803d;
+  --color-brand: #16a34a;
+  --color-brand-dark: #15803d;
+}
+
+@layer base {
+  *, ::after, ::before {
+    border-color: #e5e7eb;
+  }
+  body {
+    font-family: var(--font-exo), system-ui, sans-serif;
+    color: #1f2937;
+  }
+}
+
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+@utility btn-primary {
+  @apply btn bg-brand-600 text-white hover:bg-brand-700;
+}
+@utility btn-outline {
+  @apply btn border border-gray-300 bg-white text-gray-700 hover:bg-gray-100;
+}
+@utility btn-danger {
+  @apply btn border border-red-500 text-red-600 hover:bg-red-50;
+}
+@utility input {
+  @apply w-full rounded-lg border border-gray-300 bg-white px-3 py-2 outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20;
+}
+@utility card {
+  @apply rounded-xl border border-gray-200 bg-white;
+}
+@utility container-x {
+  @apply mx-auto w-full max-w-7xl px-4;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+body {
+  background: #fcfcfd;
+}
+.full-bleed {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
